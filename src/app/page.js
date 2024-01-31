@@ -1,6 +1,7 @@
 "use client"
+import {MyContext} from '@/Helper/Context'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 const page = () => {
   const [users, setUsers] = useState([])
@@ -12,12 +13,13 @@ const page = () => {
     getUsers()
   }, [])
   
-  
+  const Decs = useContext(MyContext)
   return (
     <>
       <button  onClick={()=>{
         getUsers();
       }} className='p-3 m-5 bg-green-600 text-white items-center font-bold rounded ' >Get Data</button>
+        <div>{Decs}</div>
       <div className='p-8 bg-slate-100 mt-5'>
         <ul>
           
